@@ -53,8 +53,7 @@ class TaskController extends Controller
         // return "masuk search";
         $search = $request->search;
 
-        $tasks = Task::where('name','like',"%".$search."%")->get();
-        // return $tasks;
+        $tasks = Task::where('name','like',"%".$search."%")->paginate(10);
         return view('welcome', compact('tasks'));
 
     }
