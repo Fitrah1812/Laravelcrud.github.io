@@ -122,6 +122,7 @@
 
                     
                 </table>
+                {{ $tasks->links() }}
                 </br>
 
                 
