@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class TaskController extends Controller
 {
     public function __construct(){
         $this -> middleware('auth');
-
     }
 
     public function index()
@@ -46,5 +46,16 @@ class TaskController extends Controller
         $task =Task::find($id);
         $task->delete();
         return redirect()->route('index'); 
+    }
+
+    public function search(Request $request)
+    {
+        // return "masuk search";
+        $search = $request->search;
+
+        $tasks = Task::where('name','like',"%".$search."%")->get();
+        // return $tasks;
+        return view('welcome', compact('tasks'));
+
     }
 } 

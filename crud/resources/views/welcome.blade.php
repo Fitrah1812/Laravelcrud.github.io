@@ -97,6 +97,10 @@
                     <button class="btn btn-primary">Tambahkan</button>
                 </form>
                 <br>
+                <form action="/search" method="GET">
+                <input type="text" name="search" placeholder="Cari pertanyaan ..">
+		        <input type="submit" value="Cari">
+                </form>
               
                 <table class="table">
                     <thead>
