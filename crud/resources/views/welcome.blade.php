@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="https://marketing.appkey.co.id/wp-content/uploads/2020/06/thumbnail-QnA-SEO.jpg" class="attachment-full size-full wp-post-image" >
 
-        <title>To Do App</title>
+        <title>Halaman QNA</title>
         <!-- CSS only -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> 
 
@@ -14,8 +15,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: #FAF0E6;
+                color: #FF00FF;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -83,42 +84,49 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    To Do App
+                    Halaman QNA
                 </div>
                 <form action="{{ route('store') }}" method="POST" class="form">
                     @csrf
                     <div class="form-group">
-                        <label>Tugas Baru</label>
-                        <input type="text" name="name" placeholder="Ex: Matematika 2" class="form-control">
-                        
+                        <label>Pertanyaan</label>
+                        <input type="text" name="name" placeholder="Ex: Apakah Minuman Kesukaanku ?" class="form-control">
+                        <label>Jawaban</label>
+                        <input type="text" name="name" placeholder="Ex: Es Teh Panas" class="form-control">
                     </div>
                     <button class="btn btn-primary">Tambahkan</button>
                 </form>
                 <br>
+                <form action="/search" method="GET">
+                <input type="text" name="search" placeholder="Cari pertanyaan ..">
+		        <input type="submit" value="Cari">
+                </form>
               
                 <table class="table">
                     <thead>
                         <th>No</th>
                         <th>Pertanyaan</th>
+                        <th>Jawaban</th>
                         <th>Aksi</th>
                         
                     </thead>
                     <tbody>
                         @foreach($tasks as $key =>$task)
-                        
                         <tr>
                             <td>{{ $key+1 }}</td>
+                            <td>{{ $task->name }}</td>
                             <td>{{ $task->name }}</td>
                             <td>
                                 <a class="btn btn-warning btn-sm" href="{{ route('edit', $task->id) }}">Edit</a> | 
                                 <a class="btn btn-danger btn-sm" href="{{ route('delete', $task->id) }}">Delete</a>
-
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
+
                     
                 </table>
+                {{ $tasks->links() }}
                 </br>
 
                 

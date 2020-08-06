@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>To Do App</title>
+        <title>Halaman Edit QNA</title>
+        <link rel="icon" href="https://marketing.appkey.co.id/wp-content/uploads/2020/06/thumbnail-QnA-SEO.jpg" class="attachment-full size-full wp-post-image" >
         <!-- CSS only -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> 
 
@@ -14,8 +15,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: #FAF0E6;
+                color: #FF00FF;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -83,7 +84,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    To Do App
+                    Halaman Edit QNA
                 </div>
                 <form action="{{ route('update') }}" method="POST" class="form">
                     @csrf
@@ -91,10 +92,13 @@
                     <input type="hidden" name="id" value="{{$task->id}}">
                     <div class="form-group">
                         <label>Edit Pertanyaan</label>
-                        <input type="text" name="name" placeholder="Ex: Matematika 2" class="form-control" value="{{$task->name}}">
+                        <input type="text" name="name" class="form-control" value="{{$task->name}}">
+
+                        <label>Edit Jawaban</label>
+                        <input type="text" name="name" class="form-control" value="{{$task->name}}">
                         
                     </div>
-                    <button class="btn btn-warning">Edit</button>
+                    <button class="btn btn-warning">Save</button>
                 </form>        
 
                 

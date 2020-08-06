@@ -13,6 +13,16 @@
 
 Route::get('/', 'TaskController@index')->name('index');
 Route::post('store', 'TaskController@store')->name('store');
+
 Route::get('{id}/edit', 'TaskController@edit')->name('edit');
+
 Route::put('update', 'TaskController@update')->name('update');
+
 Route::get('{id}/delete', 'TaskController@delete')->name('delete');
+
+Route::get('/search', 'TaskController@search');
+
+Auth::routes();
+
+// Route::get('/', 'LandingPageController@index')->name('landing');
+// Route::get('/home', 'HomeController@index')->name('home');
